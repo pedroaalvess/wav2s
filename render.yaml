@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: wav2lip-app
+    env: python
+    plan: gpu
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port 10000 --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.13
+    gpuType: A6000
+    region: oregon
